@@ -1,7 +1,7 @@
-A simple authentication API using Node.js, Express, and MySQL.
+# A simple authentication API using Node.js, Express, and MySQL.
 Supports Signup, Login, Logout (token revocation), and Profile (protected route).
 
-Features
+# Features
 -User signup (register with email + password)
 -User login (returns JWT token)
 -Profile route (protected with token)
@@ -9,7 +9,7 @@ Features
 -Passwords hashed with bcrypt
 -Tokens signed with JWT
 
-Tech Stack
+# Tech Stack
 -Node.js + Express
 -MySQL2
 -bcryptjs
@@ -17,13 +17,13 @@ Tech Stack
 -dotenv
 -cors
 
-Setup Instructions
-1. Database Setup
+# Setup Instructions
+# 1. Database Setup
 Open XAMPP → start Apache and MySQL.
 Go to phpMyAdmin → create a new database:
 lab_auth
 
-Create required tables:
+# Create required tables:
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE revoked_tokens (
   expires_at DATETIME
 );
 
-2. Project Setup
+# 2. Project Setup
 # Clone or create the folder
 mkdir lab-auth-api
 cd lab-auth-api
@@ -49,7 +49,7 @@ npm init -y
 npm install express mysql2 dotenv cors bcryptjs jsonwebtoken uuid
 npm install -D nodemon
 
-3. Project Structure
+# 3. Project Structure
 lab-auth-api/
 ├─ config/
 │  └─ db.js
@@ -63,7 +63,7 @@ lab-auth-api/
 ├─ .gitignore
 └─ server.js
 
-4. .env File
+# 4. .env File
 Create a file called .env in the root:
 # Note: Make sure to change the credentials of your DB_USER, DB_PASS, and DB_NAME (change JWT_SECRET and  JWT_EXPIRES if you like to change it) to the one you've assigned your system.
 DB_HOST=localhost
@@ -76,12 +76,12 @@ SERVER_PORT=3000
 JWT_SECRET=your_long_random_secret_here
 JWT_EXPIRES=1h
 
-5. Run the Server
+# 5. Run the Server
 npm run dev
 Visit:
 http://localhost:3000/api/health
 
-You should see:
+# You should see:
 { "status": "ok", "db": "connected", "time": "..." }
 
 # API Endpoints
